@@ -1,5 +1,45 @@
-load the mode, it hooks file loading, so when you load a .class file you get the javap output. syntax hilighting of the javap output is a work in progress.
+javap-mode
+==========
 
-better hilighting would be nice, also some way to step though varying levels of verbosity of javap output
+Use `javap` to disassemble java classfiles and display the bytecode of
+.class files in a readable manner.
 
-would be nice to hit enter on line in line number table and jump to the line in the method's bytecode
+When you load a .class file, you should see a syntax-highlighed javap
+output. The syntax hilighting is a work in progress.
+
+Installation
+------------
+
+This package is avialable on MELPA. The marmalade version is out of date.
+
+Using MELPA, install it using `M-x package-install RET javap-mode RET`.
+
+Otherwise, download the `javap-mode.el` file, open it in emacs and use
+`M-x package-install-from-buffer`.
+
+If you are using a really old version of emacs, you can also do
+`(require 'java-mode "path/to/where/you/placed/javap-mode.el")` in
+your `init.el`.
+
+Usage
+-----
+
+Simply install the package. This package will automatically activate
+on opening a java .class file.
+
+
+Future Tasks
+------------
+
+- Better hilighting would be nice, also some way to step though
+  varying levels of verbosity of javap output
+
+- Would be nice to hit enter on line in line number table and jump to
+  the line in the method's bytecode
+
+License
+-------
+
+Copyright (C) 2011 Kevin Downey
+
+Licensed under the MIT License (MIT)

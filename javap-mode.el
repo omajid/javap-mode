@@ -1,6 +1,8 @@
-;;; javap-mode.el --- Javap major mode
-;;; Version: 9
-;;; URL: http://github.com/hiredman/javap-mode
+;;; javap-mode.el --- display nicely formatted java bytecode instead of bytes in .class files
+
+;; Version: 9
+;; URL: http://github.com/hiredman/javap-mode
+;; Keywords: languages files
 
 ;; Copyright (C) 2011 Kevin Downey
 
@@ -21,6 +23,13 @@
 ;; LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 ;; OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 ;; THE SOFTWARE.
+
+;;; Commentary:
+
+;; Install this package and then open a .class file to automatically
+;; use javap to disassemble and pretty-print the bytecode.
+
+;;; Code:
 
 (defconst javap-font-lock-keywords
   (eval-when-compile
@@ -84,7 +93,7 @@
   (set (make-local-variable 'font-lock-defaults) '(javap-font-lock-keywords)))
 
 (defun javap-buffer ()
-  "run javap on contents of buffer"
+  "Run javap on contents of buffer, displaying the result in another buffer."
   (interactive)
   (lexical-let* ((b-name (file-name-nondirectory (buffer-file-name)))
                  (b-name (substring b-name 0 (- (length b-name) 6)))
